@@ -17,13 +17,14 @@ namespace CardUI.Data
         public Task<WeatherForecast[]> GetForecastAsync(DateTime startDate)
         {
             List<WeatherForecast> result = new List<WeatherForecast>();
+            WeatherSummaries ws = new WeatherSummaries();
 
             var rng = new Random();
             
             for(int i = 0; i < recordNumber; i++)
             { 
                 int temp = rng.Next(-20, 55);
-                string summary = GetSummary(temp);
+                string summary = ws.GetSummary(temp);
                 int index = i;
                 WeatherForecast entity = new WeatherForecast
                 {
