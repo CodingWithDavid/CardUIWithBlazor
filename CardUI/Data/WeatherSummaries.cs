@@ -100,7 +100,7 @@ namespace CardUI.Data
         {
             string result = "";
             result = (from a in Summaries
-                     where (a.MinValueC <= temp) && (a.MaxValueC > temp )
+                     where (a.MinValueC <= temp) && (temp <= a.MaxValueC)
                      select a.Description).FirstOrDefault();
             return result;
         }
